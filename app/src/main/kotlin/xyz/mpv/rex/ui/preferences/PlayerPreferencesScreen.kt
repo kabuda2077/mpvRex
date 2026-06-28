@@ -74,7 +74,7 @@ object PlayerPreferencesScreen : Screen {
         ) {
           // General Section
           item {
-            PreferenceSectionHeader(title = "General")
+            PreferenceSectionHeader(title = stringResource(R.string.pref_player_general_header))
           }
           
           item {
@@ -118,13 +118,13 @@ object PlayerPreferencesScreen : Screen {
               SwitchPreference(
                 value = autoplayNextVideo,
                 onValueChange = preferences.autoplayNextVideo::set,
-                title = { Text(text = "Autoplay next video") },
+                title = { Text(text = stringResource(R.string.pref_autoplay_next_video_title)) },
                 summary = {
                   Text(
                     text = if (autoplayNextVideo)
-                      "Automatically play next video when current ends"
+                      stringResource(R.string.pref_player_autoplay_next_video_on_summary)
                     else
-                      "Stay on current video when it ends",
+                      stringResource(R.string.pref_player_autoplay_next_video_off_summary),
                     color = MaterialTheme.colorScheme.outline,
                   )
                 },
@@ -140,9 +140,9 @@ object PlayerPreferencesScreen : Screen {
                 summary = {
                   Text(
                     text = if (playlistMode)
-                      "Show next/previous buttons for all videos in folder"
+                      stringResource(R.string.pref_player_playlist_mode_on_summary)
                     else
-                      "Play videos individually (select multiple for playlist)",
+                      stringResource(R.string.pref_player_playlist_mode_off_summary),
                     color = MaterialTheme.colorScheme.outline,
                   )
                 },
@@ -163,10 +163,10 @@ object PlayerPreferencesScreen : Screen {
               SwitchPreference(
                 value = autoPiPOnNavigation,
                 onValueChange = preferences.autoPiPOnNavigation::set,
-                title = { Text("Auto Picture-in-Picture") },
+                title = { Text(stringResource(R.string.pref_player_auto_pip_title)) },
                 summary = {
                   Text(
-                    text = "Automatically enter PIP mode when pressing home or back",
+                    text = stringResource(R.string.pref_player_auto_pip_summary),
                     color = MaterialTheme.colorScheme.outline,
                   )
                 },
@@ -182,9 +182,9 @@ object PlayerPreferencesScreen : Screen {
                 summary = {
                   Text(
                     text = if (keepScreenOnWhenPaused)
-                      "Screen stays awake while video is paused"
+                      stringResource(R.string.pref_player_keep_screen_on_when_paused_summary_on)
                     else
-                      "Screen can turn off while video is paused",
+                      stringResource(R.string.pref_player_keep_screen_on_when_paused_summary_off),
                     color = MaterialTheme.colorScheme.outline,
                   )
                 },
@@ -362,8 +362,13 @@ object PlayerPreferencesScreen : Screen {
                 valueRange = 0.020f..0.1f,
                 summary = {
                   val sensitivityPercent = (horizontalSwipeSensitivity * 1000).toInt()
+                  val sensLabelText = when {
+                    sensitivityPercent < 30 -> stringResource(R.string.pref_player_sensitivity_low)
+                    sensitivityPercent < 55 -> stringResource(R.string.pref_player_sensitivity_medium)
+                    else -> stringResource(R.string.pref_player_sensitivity_high)
+                  }
                   Text(
-                    "Current: ${sensitivityPercent}/100 (${if (sensitivityPercent < 30) "Low" else if (sensitivityPercent < 55) "Medium" else "High"})",
+                    stringResource(R.string.pref_player_sensitivity_label, sensitivityPercent, sensLabelText),
                     color = MaterialTheme.colorScheme.outline,
                   )
                 },
@@ -399,10 +404,10 @@ object PlayerPreferencesScreen : Screen {
               SwitchPreference(
                 value = showDynamicSpeedOverlay,
                 onValueChange = preferences.showDynamicSpeedOverlay::set,
-                title = { Text("Dynamic Speed Overlay") },
+                title = { Text(stringResource(R.string.pref_dynamic_speed_overlay_title)) },
                 summary = {
                   Text(
-                    "Show advance overlay for speed control during long press and swipe",
+                    stringResource(R.string.pref_dynamic_speed_overlay_summary),
                     color = MaterialTheme.colorScheme.outline,
                   )
                 }
@@ -481,7 +486,7 @@ object PlayerPreferencesScreen : Screen {
               SwitchPreference(
                 value = showSystemNavigationBar,
                 onValueChange = preferences.showSystemNavigationBar::set,
-                title = { Text("Show navigation bar with controls") },
+                title = { Text(stringResource(R.string.pref_show_navigation_bar_title)) },
               )
               
               PreferenceDivider()

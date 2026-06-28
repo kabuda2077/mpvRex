@@ -31,6 +31,8 @@ import kotlinx.serialization.Serializable
 import me.zhanghai.compose.preference.Preference
 import me.zhanghai.compose.preference.ProvidePreferenceLocals
 import me.zhanghai.compose.preference.SliderPreference
+import xyz.mpv.rex.R
+import androidx.compose.ui.res.stringResource
 import xyz.mpv.rex.ui.preferences.components.SwitchPreference
 import org.koin.compose.koinInject
 import kotlin.math.roundToInt
@@ -52,7 +54,7 @@ object ShortsPreferencesScreen : Screen {
                 TopAppBar(
                     title = {
                         Text(
-                            text = "RexShorts Settings",
+                            text = stringResource(R.string.pref_shorts_settings_title),
                             style = MaterialTheme.typography.headlineSmall,
                             fontWeight = FontWeight.ExtraBold,
                             color = MaterialTheme.colorScheme.primary,
@@ -77,7 +79,7 @@ object ShortsPreferencesScreen : Screen {
                         .padding(padding),
                 ) {
                     item {
-                        PreferenceSectionHeader(title = "General")
+                        PreferenceSectionHeader(title = stringResource(R.string.pref_shorts_category_general))
                     }
 
                     item {
@@ -85,8 +87,8 @@ object ShortsPreferencesScreen : Screen {
                             SwitchPreference(
                                 value = enableShorts,
                                 onValueChange = { browserPreferences.enableShorts.set(it) },
-                                title = { Text("Enable RexShorts") },
-                                summary = { Text("Show the Shorts tab in the bottom navigation bar") },
+                                title = { Text(stringResource(R.string.pref_shorts_enable_title)) },
+                                summary = { Text(stringResource(R.string.pref_shorts_enable_summary)) },
                                 icon = {
                                     Icon(
                                         Icons.Outlined.VideoLibrary,
@@ -101,8 +103,8 @@ object ShortsPreferencesScreen : Screen {
                             SwitchPreference(
                                 value = autoSwipeShorts,
                                 onValueChange = { browserPreferences.autoSwipeShorts.set(it) },
-                                title = { Text("Auto Swipe to Next Short") },
-                                summary = { Text("Automatically swipe to the next short when current one ends") },
+                                title = { Text(stringResource(R.string.pref_shorts_auto_swipe_title)) },
+                                summary = { Text(stringResource(R.string.pref_shorts_auto_swipe_summary)) },
                                 icon = {
                                     Icon(
                                         Icons.Outlined.Repeat,
@@ -115,7 +117,7 @@ object ShortsPreferencesScreen : Screen {
                     }
 
                     item {
-                        PreferenceSectionHeader(title = "Discovery")
+                        PreferenceSectionHeader(title = stringResource(R.string.pref_shorts_category_discovery))
                     }
 
                     item {
@@ -123,8 +125,8 @@ object ShortsPreferencesScreen : Screen {
                             SwitchPreference(
                                 value = includeHorizontal,
                                 onValueChange = { browserPreferences.includeShortHorizontalVideos.set(it) },
-                                title = { Text("Include Short Normal Videos") },
-                                summary = { Text("Show horizontal videos in the feed if they are short") },
+                                title = { Text(stringResource(R.string.pref_shorts_include_horizontal_title)) },
+                                summary = { Text(stringResource(R.string.pref_shorts_include_horizontal_summary)) },
                                 icon = {
                                     Icon(
                                         Icons.Outlined.HorizontalRule,
@@ -141,10 +143,10 @@ object ShortsPreferencesScreen : Screen {
                                 onValueChange = { browserPreferences.maxHorizontalVideoDurationMinutes.set(it.roundToInt()) },
                                 sliderValue = maxDuration.toFloat(),
                                 onSliderValueChange = { browserPreferences.maxHorizontalVideoDurationMinutes.set(it.roundToInt()) },
-                                title = { Text("Max Horizontal Duration") },
+                                title = { Text(stringResource(R.string.pref_shorts_max_horizontal_duration_title)) },
                                 summary = { 
                                     Text(
-                                        text = "Limit horizontal videos to $maxDuration minute${if (maxDuration > 1) "s" else ""}",
+                                        text = stringResource(R.string.pref_shorts_max_horizontal_duration_summary_formatted, maxDuration),
                                         color = MaterialTheme.colorScheme.outline
                                     ) 
                                 },
@@ -159,16 +161,16 @@ object ShortsPreferencesScreen : Screen {
                     }
 
                     item {
-                        PreferenceSectionHeader(title = "Content Management")
+                        PreferenceSectionHeader(title = stringResource(R.string.pref_shorts_category_content_management))
                     }
 
                     item {
                         PreferenceCard {
                             Preference(
-                                title = { Text("Blocked Videos") },
+                                title = { Text(stringResource(R.string.pref_shorts_blocked_videos_title)) },
                                 summary = { 
                                     Text(
-                                        text = "View and manage blocked shorts",
+                                        text = stringResource(R.string.pref_shorts_blocked_videos_summary),
                                         color = MaterialTheme.colorScheme.outline
                                     ) 
                                 },

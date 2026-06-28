@@ -183,10 +183,10 @@ object GesturePreferencesScreen : Screen {
             onValueChange = { preferences.doubleTapSeekAreaWidth.set(it) },
             values = seekAreaValues,
             valueToText = { AnnotatedString("${it}%") },
-            title = { Text(text = "Double Tap Seek Area Width") },
+            title = { Text(text = stringResource(R.string.pref_double_tap_seek_area_width_title)) },
             summary = {
               Text(
-                text = "Current: ${doubleTapSeekAreaWidth}%",
+                text = stringResource(R.string.pref_double_tap_seek_area_width_summary, doubleTapSeekAreaWidth),
                 color = MaterialTheme.colorScheme.outline,
               )
             },

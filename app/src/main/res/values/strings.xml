@@ -662,4 +662,216 @@
     <string name="copy_video_path">Copy video file path</string>
     <string name="copy_folder_path">Copy folder path</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
+
+    <!-- New Localization Strings -->
+    <string name="tab_home">Home</string>
+    <string name="tab_shorts">Shorts</string>
+    <string name="tab_recents">Recents</string>
+    <string name="tab_playlists">Playlists</string>
+    <string name="tab_network">Network</string>
+
+    <string name="pref_category_ui_appearance">UI &amp; Appearance</string>
+    <string name="pref_category_playback_controls">Playback &amp; Controls</string>
+    <string name="pref_category_file_management">File Management</string>
+    <string name="pref_category_media_settings">Media Settings</string>
+    <string name="pref_category_shorts">RexShorts</string>
+    <string name="pref_category_advanced_about">Advanced &amp; About</string>
+
+    <string name="pref_shorts_settings_title">RexShorts Settings</string>
+    <string name="pref_shorts_category_general">General</string>
+    <string name="pref_shorts_enable_title">Enable RexShorts</string>
+    <string name="pref_shorts_enable_summary">Show the Shorts tab in the bottom navigation bar</string>
+    <string name="pref_shorts_auto_swipe_title">Auto Swipe to Next Short</string>
+    <string name="pref_shorts_auto_swipe_summary">Automatically swipe to the next short when current one ends</string>
+    <string name="pref_shorts_category_discovery">Discovery</string>
+    <string name="pref_shorts_include_horizontal_title">Include Short Normal Videos</string>
+    <string name="pref_shorts_include_horizontal_summary">Show horizontal videos in the feed if they are short</string>
+    <string name="pref_shorts_max_horizontal_duration_title">Max Horizontal Duration</string>
+    <string name="pref_shorts_max_horizontal_duration_summary_formatted">Limit horizontal videos to %d minutes</string>
+    <string name="pref_shorts_category_content_management">Content Management</string>
+    <string name="pref_shorts_blocked_videos_title">Blocked Videos</string>
+    <string name="pref_shorts_blocked_videos_summary">View and manage blocked shorts</string>
+
+    <string name="home_empty_title">No video folders found</string>
+    <string name="home_empty_message">Add videos to your device to see folders here</string>
+
+    <string name="playlist_empty_title">No playlists yet</string>
+    <string name="playlist_empty_message">Create a playlist or add one from an m3u URL</string>
+    <string name="playlist_search_empty_title">No playlists found</string>
+    <string name="playlist_search_empty_message">Try a different search term</string>
+
+    <string name="network_local_network_title">Local Network</string>
+    <string name="network_empty_title">No network connections</string>
+    <string name="network_empty_message">Add SMB, FTP, or WebDAV connections to browse network files</string>
+    <string name="network_stream_link_title">Stream Link</string>
+    <string name="network_paste_button">Paste</string>
+    <string name="network_play_button">Play</string>
+
+    <!-- More Localization Strings -->
+    <string name="pref_shorts_settings_summary">Manage enable/disable, shuffle, and blocked content</string>
+
+    <string name="permission_denied_title">Storage Access Required</string>
+    <string name="permission_denied_allow_access">ALLOW ACCESS</string>
+    <string name="permission_denied_why_link">Why do I see this?</string>
+    <string name="permission_denied_why_dialog_title">Why this permission is needed</string>
+    <string name="permission_denied_privacy_message">Be rest assured, your privacy is our utmost priority, and we neither access your files for other purposes nor transfer or store them to our servers. They remain safe on your device.</string>
+    <string name="permission_denied_desc_play_store_tiramisu">mpvRex requires "Photos and videos" permission to access and play your video files stored on your device.</string>
+    <string name="permission_denied_desc_play_store_legacy">mpvRex requires "Storage" permission to access and play your media files stored on your device.</string>
+    <string name="permission_denied_desc_standard">mpvRex requires "All file access" permission to discover media and subtitles on your device due to a change in security policy in Android 11 and later versions.</string>
+    <string name="permission_denied_why_play_store_1">mpvRex needs access to your video files to provide its core functionality as a media player.</string>
+    <string name="permission_denied_why_play_store_tiramisu">On Android 13 and above, this permission allows the app to read video files from your device\'s storage, including Downloads, Movies, and DCIM folders.</string>
+    <string name="permission_denied_why_play_store_legacy">This permission allows the app to read media files from your device\'s storage to play videos and audio.</string>
+    <string name="permission_denied_why_play_store_exclusively">The permission is used exclusively for:</string>
+    <string name="permission_denied_why_play_store_bullets">• Discovering and displaying your video files\n• Playing media content\n• Loading subtitle files</string>
+    <string name="permission_denied_why_standard_1">mpvRex has always required storage access permission as it\'s essential for the app to find all media and subtitle files on your device, including the ones that are not supported by the system.</string>
+    <string name="permission_denied_why_standard_2">However, due to a change in security policy, apps built for Android 11 and above now require additional permission to continue accessing the same.</string>
+    <string name="permission_denied_why_standard_3">Please know that this permission is only used for the auto-discovery of media/subtitle files on your device and will not allow us to access the private data files stored by other apps in any way.</string>
+    <string name="permission_denied_why_open_source">mpvRex is an open source project. You can review the source code and verify how permissions are used by visiting our GitHub repository at:</string>
+
+    <string name="recently_played_disabled_title">Recently Played is disabled</string>
+    <string name="recently_played_disabled_message">Enable it in Advanced Settings to track your playback history</string>
+    <string name="recently_played_empty_title">No recently played videos</string>
+    <string name="recently_played_empty_message">Videos you play will appear here</string>
+
+    <string name="shorts_empty_blocked">No blocked videos found</string>
+    <string name="shorts_empty_no_videos">No vertical videos found</string>
+
+    <string name="experimental_suffix">(Experimental)</string>
+    <string name="pref_decoder_hdr_toys_title">HDR-to-SDR Tone Mapping (hdr-toys)</string>
+    <string name="pref_decoder_hdr_toys_summary">Apply high quality GLSL shaders for HDR-to-SDR conversion. Requires gpu-next.</string>
+    <string name="pref_decoder_hdr_toys_tone_title">Tone Mapping Algorithm</string>
+    <string name="pref_decoder_hdr_toys_gamut_title">Gamut Mapping Algorithm</string>
+
+    <string name="seekbar_style_standard">Standard</string>
+    <string name="seekbar_style_wavy">Wavy</string>
+    <string name="seekbar_style_thick">Thick</string>
+    <string name="seekbar_style_circular">Circular</string>
+    <string name="seekbar_style_simple">Simple</string>
+    <string name="pref_player_seekbar_style_title">Seekbar Style</string>
+    <string name="pref_player_controls_layout_title">Controls Layout</string>
+    <string name="pref_player_bottom_controls_below_seekbar_title">Bottom controls below seekbar</string>
+    <string name="pref_player_bottom_controls_below_seekbar_summary_below">Control buttons appear below the seekbar</string>
+    <string name="pref_player_bottom_controls_below_seekbar_summary_above">Control buttons appear above the seekbar</string>
+    <string name="pref_player_gradient_opacity_title">Player gradient opacity</string>
+    <string name="pref_player_custom_time_label">Custom</string>
+    <string name="pref_player_custom_time_ms_summary">Custom (%1$d ms)</string>
+
+    <string name="pref_player_landscape_controls_title">Landscape Controls</string>
+    <string name="pref_player_portrait_controls_title">Portrait Controls</string>
+    <string name="pref_player_more_sheet_controls_title">More Sheet Controls</string>
+    <string name="pref_player_buttons_in_controls_tab_title">Buttons in Controls Tab</string>
+    <string name="pref_player_autoplay_next_video_on_summary">Automatically play next video when current ends</string>
+    <string name="pref_player_autoplay_next_video_off_summary">Stay on current video when it ends</string>
+    <string name="pref_player_playlist_mode_on_summary">Show next/previous buttons for all videos in folder</string>
+    <string name="pref_player_playlist_mode_off_summary">Play videos individually (select multiple for playlist)</string>
+    <string name="pref_player_auto_pip_title">Auto Picture-in-Picture</string>
+    <string name="pref_player_auto_pip_summary">Automatically enter PIP mode when pressing home or back</string>
+    <string name="pref_player_keep_screen_on_when_paused_summary_on">Screen stays awake while video is paused</string>
+    <string name="pref_player_keep_screen_on_when_paused_summary_off">Screen can turn off while video is paused</string>
+    <string name="pref_player_sensitivity_label">Current: %1$d/100 (%2$s)</string>
+    <string name="pref_player_sensitivity_low">Low</string>
+    <string name="pref_player_sensitivity_medium">Medium</string>
+    <string name="pref_player_sensitivity_high">High</string>
+
+    <string name="pref_player_general_header">General</string>
+    <string name="pref_subtitles_search_header">Subtitle Search</string>
+    <string name="pref_subtitles_sources_title">Subtitle Sources</string>
+    <string name="pref_subtitles_all_sources">All</string>
+    <string name="pref_subtitles_advanced_search_filters">Advanced Search Filters</string>
+    <string name="pref_subtitles_search_provided_by">Subtitle Search provided by</string>
+    <string name="pref_subtitles_hearing_impaired_friendly">Hearing-impaired friendly</string>
+    <string name="pref_subtitles_hearing_impaired_friendly_summary">Only show subtitles optimized for hearing impaired</string>
+    <string name="pref_subtitles_preferred_formats">Preferred Formats</string>
+    <string name="pref_subtitles_preferred_encodings">Preferred Encodings</string>
+
+    <string name="pref_advanced_backup_restore_header">Backup &amp; Restore</string>
+    <string name="pref_advanced_export_settings_title">Export Settings</string>
+    <string name="pref_advanced_export_settings_summary">Export settings to an XML file</string>
+    <string name="pref_advanced_import_settings_title">Import Settings</string>
+    <string name="pref_advanced_import_settings_summary">Import settings from an XML file</string>
+    <string name="pref_advanced_mpv_configuration_header">MPV Configuration</string>
+    <string name="pref_advanced_tap_to_edit_configuration">Tap to edit configuration</string>
+    <string name="pref_advanced_scripts_header">Scripts</string>
+    <string name="pref_advanced_enable_lua_scripts">Enable Lua Scripts</string>
+    <string name="pref_advanced_enable_lua_scripts_summary">Load Lua scripts from configuration directory</string>
+    <string name="pref_advanced_manage_lua_scripts">Manage Lua Scripts</string>
+    <string name="pref_advanced_set_storage_location_first">Set storage location and enable Lua scripts first</string>
+    <string name="pref_advanced_no_scripts_enabled">No scripts enabled</string>
+    <string name="pref_advanced_one_script_enabled">1 script enabled</string>
+    <string name="pref_advanced_multiple_scripts_enabled">%1$d scripts enabled</string>
+    <string name="pref_advanced_custom_lua_title">Custom Lua</string>
+    <string name="pref_advanced_custom_lua_summary">Create and manage custom Lua buttons</string>
+    <string name="pref_advanced_history_header">History</string>
+    <string name="pref_advanced_clear_playback_history_failed">Failed to clear: %1$s</string>
+    <string name="pref_advanced_system_integration_header">System Integration</string>
+    <string name="pref_advanced_enable_media_info_activity">Enable Media Info Activity</string>
+    <string name="pref_advanced_enable_media_info_activity_summary">Show \'Media Info\' as an option in system-wide \'Open with\' menus</string>
+    <string name="pref_advanced_logging_header">Logging</string>
+    <string name="pref_advanced_export_complete_title">Export Complete</string>
+    <string name="pref_advanced_export_complete_summary">Successfully exported %1$d items!</string>
+    <string name="pref_advanced_import_complete_title">Import Complete</string>
+    <string name="pref_advanced_import_complete_summary">Successfully imported: %1$d\nFailed: %2$d\nVersion: %3$d\n\nPlease restart the app for all changes to take effect.</string>
+
+    <string name="pref_advanced_cache_header">Cache</string>
+    <string name="pref_advanced_clear_config_cache_title">Clear config cache</string>
+    <string name="pref_advanced_clear_config_cache_summary">Clear the cached mpv.conf settings</string>
+    <string name="pref_advanced_config_cache_cleared">Config cache cleared</string>
+    <string name="pref_advanced_clear_thumbnail_cache_confirm_title">Clear thumbnail cache?</string>
+    <string name="pref_advanced_clear_thumbnail_cache_confirm_message">This will delete all cached thumbnails (local and network) from storage and memory.</string>
+    <string name="pref_advanced_thumbnail_cache_cleared">Thumbnail cache cleared</string>
+
+    <string name="pref_community_hub_title">Community Hub</string>
+    <string name="pref_community_hub_summary">Connect with us on social media</string>
+
+
+    <!-- Sort Dialog -->
+    <string name="sort_view_options">Sort &amp; View Options</string>
+    <string name="view_options">View Options</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sort_title">Title</string>
+    <string name="sort_duration">Duration</string>
+    <string name="sort_date">Date</string>
+    <string name="sort_size">Size</string>
+    <string name="sort_count">Count</string>
+    <string name="sort_asc_az">A-Z</string>
+    <string name="sort_desc_za">Z-A</string>
+    <string name="sort_asc_shortest">Shortest</string>
+    <string name="sort_desc_longest">Longest</string>
+    <string name="sort_asc_oldest">Oldest</string>
+    <string name="sort_desc_newest">Newest</string>
+    <string name="sort_asc_smallest">Smallest</string>
+    <string name="sort_desc_largest">Largest</string>
+    <string name="sort_desc_biggest">Biggest</string>
+    <string name="sort_asc">Asc</string>
+    <string name="sort_desc">Desc</string>
+    <string name="view_mode">View Mode</string>
+    <string name="view_mode_folder">Folder</string>
+    <string name="view_mode_tree">Tree</string>
+    <string name="view_mode_library">Library</string>
+    <string name="layout">Layout</string>
+    <string name="layout_list">List</string>
+    <string name="layout_grid">Grid</string>
+    <string name="filter_audio_files">Audio Files</string>
+    <string name="filter_filters">Filters</string>
+    <string name="field_video_thumbnails">Video Thumbnails</string>
+    <string name="field_full_name">Full Name</string>
+    <string name="field_path">Path</string>
+    <string name="field_total_videos">Total Videos</string>
+    <string name="field_total_duration">Total Duration</string>
+    <string name="field_folder_size">Folder Size</string>
+    <string name="field_file_size">File Size</string>
+    <string name="field_resolution">Resolution</string>
+    <string name="field_framerate">Framerate</string>
+    <string name="field_progress_bar">Progress Bar</string>
+    <string name="field_subtitle_indicator">Subtitle Indicator</string>
+    <string name="field_fields">Fields</string>
+    <string name="grid_columns">Grid Columns</string>
+    <string name="grid_columns_with_orientation">Grid Columns (%1$s)</string>
+    <string name="folder_grid_columns_with_orientation">Folder Grid Columns (%1$s)</string>
+    <string name="video_grid_columns_with_orientation">Video Grid Columns (%1$s)</string>
+    <string name="grid_columns_count">%1$d columns</string>
+    <string name="grid_folder">Folder Grid</string>
+    <string name="grid_video">Video Grid</string>
+    <string name="orientation_landscape">Landscape</string>
+    <string name="orientation_portrait">Portrait</string>
 </resources>

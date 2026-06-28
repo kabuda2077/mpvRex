@@ -21,6 +21,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -29,6 +33,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -45,6 +51,7 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -160,7 +167,18 @@ object AboutScreen : Screen {
               .padding(paddingValues)
               .verticalScroll(rememberScrollState()),
         ) {
-        PreferenceCard {
+        Card(
+          modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+          shape = RoundedCornerShape(28.dp),
+          colors = CardDefaults.cardColors(
+            containerColor = Color.Transparent,
+          ),
+          elevation = CardDefaults.cardElevation(
+            defaultElevation = 0.dp,
+          ),
+        ) {
           Box(
             modifier =
               Modifier
@@ -313,8 +331,8 @@ object AboutScreen : Screen {
           }
         }
 
-        Spacer(Modifier.height(8.dp))
-
+        // Telegram Section (hidden)
+        if (false) {
         PreferenceSectionHeader(title = stringResource(id = R.string.pref_about_telegram_title))
         PreferenceCard {
           Preference(
@@ -392,11 +410,12 @@ object AboutScreen : Screen {
             },
           )
         }
+        }
 
         Spacer(Modifier.height(8.dp))
 
         // Updates Section
-        if (BuildConfig.ENABLE_UPDATE_FEATURE) {
+        if (false && BuildConfig.ENABLE_UPDATE_FEATURE) {
           PreferenceSectionHeader(title = "Updates")
           PreferenceCard {
             SwitchPreference(
@@ -453,12 +472,34 @@ object AboutScreen : Screen {
   }
 }
 
+data class OssLibrary(
+  val name: String,
+  val author: String,
+  val license: String,
+  val url: String
+)
+
+val ossLibraries = listOf(
+  OssLibrary("mpv", "mpv-player team", "GPLv2+", "https://github.com/mpv-player/mpv"),
+  OssLibrary("FFmpeg", "FFmpeg team", "LGPLv2.1+", "https://ffmpeg.org"),
+  OssLibrary("Koin", "InsertKoinIO", "Apache-2.0", "https://github.com/InsertKoinIO/koin"),
+  OssLibrary("OkHttp", "Square, Inc.", "Apache-2.0", "https://github.com/square/okhttp"),
+  OssLibrary("Room", "Google", "Apache-2.0", "https://developer.android.com/training/data-storage/room"),
+  OssLibrary("SMBJ", "hierynomus", "Apache-2.0", "https://github.com/hierynomus/smbj"),
+  OssLibrary("Sardine", "lookfirst", "Apache-2.0", "https://github.com/lookfirst/sardine"),
+  OssLibrary("Seeker", "2359Media", "Apache-2.0", "https://github.com/2359Media/Seeker"),
+  OssLibrary("NanoHTTPD", "NanoHttpd team", "BSD-3-Clause", "https://github.com/NanoHttpd/nanohttpd"),
+  OssLibrary("MediaInfo", "MediaArea", "BSD-2-Clause", "https://mediaarea.net/MediaInfo"),
+  OssLibrary("FSaf", "tangyihan", "Apache-2.0", "https://github.com/tangyihan/FSaf")
+)
+
 @Suppress("DEPRECATION")
 @Serializable
 object LibrariesScreen : Screen {
   @OptIn(ExperimentalMaterial3Api::class)
   @Composable
   override fun Content() {
+    val context = LocalContext.current
     val backstack = LocalBackStack.current
     Scaffold(
       topBar = {
@@ -483,6 +524,53 @@ object LibrariesScreen : Screen {
         )
       },
     ) { paddingValues ->
+      LazyColumn(
+        modifier = Modifier
+          .fillMaxSize()
+          .padding(paddingValues),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+      ) {
+        items(ossLibraries) { lib ->
+          Card(
+            modifier = Modifier
+              .fillMaxWidth()
+              .clickable {
+                context.startActivity(
+                  Intent(Intent.ACTION_VIEW, lib.url.toUri())
+                )
+              },
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+              containerColor = MaterialTheme.colorScheme.surfaceContainer
+            )
+          ) {
+            Column(
+              modifier = Modifier.padding(16.dp)
+            ) {
+              Text(
+                text = lib.name,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface
+              )
+              Spacer(modifier = Modifier.height(4.dp))
+              Text(
+                text = "Author: ${lib.author}",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+              )
+              Spacer(modifier = Modifier.height(2.dp))
+              Text(
+                text = "License: ${lib.license}",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.primary,
+                fontWeight = FontWeight.SemiBold
+              )
+            }
+          }
+        }
+      }
     }
   }
 }

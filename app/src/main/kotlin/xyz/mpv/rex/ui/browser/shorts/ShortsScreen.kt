@@ -80,6 +80,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
+import androidx.compose.ui.res.stringResource
+import xyz.mpv.rex.R
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalView
@@ -164,7 +166,7 @@ data class ShortsScreen(
                 )
             } else if (shorts.isEmpty()) {
                 Text(
-                    text = if (blockedOnly) "No blocked videos found" else "No vertical videos found",
+                    text = if (blockedOnly) stringResource(R.string.shorts_empty_blocked) else stringResource(R.string.shorts_empty_no_videos),
                     color = Color.White,
                     modifier = Modifier.align(Alignment.Center)
                 )

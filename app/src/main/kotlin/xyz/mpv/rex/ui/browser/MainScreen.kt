@@ -44,6 +44,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import xyz.mpv.rex.R
 import xyz.mpv.rex.preferences.BrowserPreferences
 import xyz.mpv.rex.preferences.preference.collectAsState
 import xyz.mpv.rex.presentation.Screen
@@ -160,34 +162,34 @@ object MainScreen : Screen {
     val visibleTabs = remember(isShortsEnabled, enableTabRecents, enableTabPlaylists, enableTabNetwork) {
       buildList {
         add(
-          VisibleTab("home", "Home", Icons.Filled.Home) {
+          VisibleTab("home", R.string.tab_home, Icons.Filled.Home) {
             FolderListScreen.Content()
           }
         )
         if (isShortsEnabled) {
           add(
-            VisibleTab("shorts", "Shorts", Icons.Filled.VideoLibrary) {
+            VisibleTab("shorts", R.string.tab_shorts, Icons.Filled.VideoLibrary) {
               ShortsScreen().Content()
             }
           )
         }
         if (enableTabRecents) {
           add(
-            VisibleTab("recents", "Recents", Icons.Filled.History) {
+            VisibleTab("recents", R.string.tab_recents, Icons.Filled.History) {
               RecentlyPlayedScreen.Content()
             }
           )
         }
         if (enableTabPlaylists) {
           add(
-            VisibleTab("playlists", "Playlists", Icons.AutoMirrored.Filled.PlaylistPlay) {
+            VisibleTab("playlists", R.string.tab_playlists, Icons.AutoMirrored.Filled.PlaylistPlay) {
               PlaylistScreen.Content()
             }
           )
         }
         if (enableTabNetwork) {
           add(
-            VisibleTab("network", "Network", Icons.Filled.Language) {
+            VisibleTab("network", R.string.tab_network, Icons.Filled.Language) {
               NetworkStreamingScreen.Content()
             }
           )
@@ -303,8 +305,8 @@ object MainScreen : Screen {
 
             visibleTabs.forEachIndexed { index, tab ->
               NavigationBarItem(
-                icon = { Icon(tab.icon, contentDescription = tab.label) },
-                label = { Text(tab.label) },
+                icon = { Icon(tab.icon, contentDescription = stringResource(tab.labelRes)) },
+                label = { Text(stringResource(tab.labelRes)) },
                 selected = selectedTab == index,
                 onClick = {
                   if (selectedTab == index) {
@@ -405,7 +407,7 @@ val LocalNavigationBarHeight = compositionLocalOf { 0.dp }
 
 private data class VisibleTab(
   val id: String,
-  val label: String,
+  val labelRes: Int,
   val icon: androidx.compose.ui.graphics.vector.ImageVector,
   val content: @Composable () -> Unit
 )

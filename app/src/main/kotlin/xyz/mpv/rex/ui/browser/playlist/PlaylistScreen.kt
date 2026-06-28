@@ -45,6 +45,8 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.animateFloatingActionButton
 import androidx.compose.material3.rememberTooltipState
+import androidx.compose.ui.res.stringResource
+import xyz.mpv.rex.R
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -268,7 +270,7 @@ object PlaylistScreen : Screen {
             ExtendedFloatingActionButton(
               onClick = { showPlaylistActionSheet = true },
               icon = { Icon(Icons.Filled.Add, contentDescription = null) },
-              text = { Text("Create Playlist") },
+              text = { Text(stringResource(R.string.create_playlist)) },
               modifier = Modifier.padding(bottom = navigationBarHeight)
             )
           }
@@ -284,8 +286,8 @@ object PlaylistScreen : Screen {
           ) {
             EmptyState(
               icon = Icons.Filled.Search,
-              title = "No playlists found",
-              message = "Try a different search term",
+              title = stringResource(R.string.playlist_search_empty_title),
+              message = stringResource(R.string.playlist_search_empty_message),
             )
           }
         } else if (playlistsWithCount.isEmpty() && hasCompletedInitialLoad) {
@@ -301,8 +303,8 @@ object PlaylistScreen : Screen {
             ) {
               EmptyState(
                 icon = Icons.AutoMirrored.Outlined.PlaylistAdd,
-                title = "No playlists yet",
-                message = "Create a playlist or add one from an m3u URL",
+                title = stringResource(R.string.playlist_empty_title),
+                message = stringResource(R.string.playlist_empty_message),
               )
             }
           }

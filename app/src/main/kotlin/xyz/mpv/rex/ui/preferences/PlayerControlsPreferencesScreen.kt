@@ -39,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -76,6 +77,7 @@ object PlayerControlsPreferencesScreen : Screen {
   @OptIn(ExperimentalMaterial3Api::class)
   @Composable
   override fun Content() {
+    val context = LocalContext.current
     val backstack = LocalBackStack.current
     val appearancePrefs = koinInject<AppearancePreferences>()
     val playerPrefs = koinInject<PlayerPreferences>()
@@ -158,7 +160,7 @@ object PlayerControlsPreferencesScreen : Screen {
         ) {
           // Landscape Controls Section
           item {
-            PreferenceSectionHeader(title = "Landscape Controls")
+            PreferenceSectionHeader(title = stringResource(R.string.pref_player_landscape_controls_title))
           }
           
           item {
@@ -195,7 +197,7 @@ object PlayerControlsPreferencesScreen : Screen {
           
           // Portrait Controls Section
           item {
-            PreferenceSectionHeader(title = "Portrait Controls")
+            PreferenceSectionHeader(title = stringResource(R.string.pref_player_portrait_controls_title))
           }
 
           item {
@@ -213,13 +215,13 @@ object PlayerControlsPreferencesScreen : Screen {
           }
 
           item {
-            PreferenceSectionHeader(title = "More Sheet Controls")
+            PreferenceSectionHeader(title = stringResource(R.string.pref_player_more_sheet_controls_title))
           }
 
           item {
             PreferenceCard {
               PreferenceCategoryWithEditButton(
-                title = "Buttons in Controls Tab",
+                title = stringResource(R.string.pref_player_buttons_in_controls_tab_title),
                 onClick = {
                   backstack.add(ControlLayoutEditorScreen(ControlRegion.MORE_SHEET))
                 },
@@ -228,9 +230,9 @@ object PlayerControlsPreferencesScreen : Screen {
             }
           }
           
-          // Seekbar Section
+           // Seekbar Section
           item {
-            PreferenceSectionHeader(title = "Seekbar Style")
+            PreferenceSectionHeader(title = stringResource(R.string.pref_player_seekbar_style_title))
           }
 
           item {
@@ -238,9 +240,16 @@ object PlayerControlsPreferencesScreen : Screen {
             
             PreferenceCard {
               SeekbarStyle.entries.forEachIndexed { index, style ->
+                val styleLabel = when (style) {
+                  SeekbarStyle.Standard -> stringResource(R.string.seekbar_style_standard)
+                  SeekbarStyle.Wavy -> stringResource(R.string.seekbar_style_wavy)
+                  SeekbarStyle.Thick -> stringResource(R.string.seekbar_style_thick)
+                  SeekbarStyle.Circular -> stringResource(R.string.seekbar_style_circular)
+                  SeekbarStyle.Simple -> stringResource(R.string.seekbar_style_simple)
+                }
                 ListItem(
                   headlineContent = {
-                    Text(text = style.name)
+                    Text(text = styleLabel)
                   },
                   trailingContent = {
                     RadioButton(
@@ -263,7 +272,7 @@ object PlayerControlsPreferencesScreen : Screen {
           
           // Bottom Controls Layout Section
           item {
-            PreferenceSectionHeader(title = "Controls Layout")
+            PreferenceSectionHeader(title = stringResource(R.string.pref_player_controls_layout_title))
           }
           
           item {
@@ -274,14 +283,14 @@ object PlayerControlsPreferencesScreen : Screen {
                 value = bottomControlsBelowSeekbar,
                 onValueChange = { playerPrefs.bottomControlsBelowSeekbar.set(it) },
                 title = {
-                  Text(text = "Bottom controls below seekbar")
+                  Text(text = stringResource(R.string.pref_player_bottom_controls_below_seekbar_title))
                 },
                 summary = {
                   Text(
                     text = if (bottomControlsBelowSeekbar) 
-                      "Control buttons appear below the seekbar" 
+                      stringResource(R.string.pref_player_bottom_controls_below_seekbar_summary_below) 
                     else 
-                      "Control buttons appear above the seekbar"
+                      stringResource(R.string.pref_player_bottom_controls_below_seekbar_summary_above)
                   )
                 },
               )
@@ -290,7 +299,7 @@ object PlayerControlsPreferencesScreen : Screen {
           
           // Appearance Section
           item {
-            PreferenceSectionHeader(title = "Appearance")
+            PreferenceSectionHeader(title = stringResource(R.string.pref_appearance_title))
           }
           
           item {
@@ -343,10 +352,10 @@ object PlayerControlsPreferencesScreen : Screen {
                 value = playerAlwaysDarkMode,
                 onValueChange = { appearancePrefs.playerAlwaysDarkMode.set(it) },
                 title = {
-                  Text(text = "Player controls always dark mode")
+                  Text(text = stringResource(R.string.pref_appearance_player_always_dark_mode_title))
                 },
                 summary = {
-                  Text(text = "Keep player controls in dark theme regardless of app theme")
+                  Text(text = stringResource(R.string.pref_appearance_player_always_dark_mode_summary))
                 },
               )
               
@@ -356,12 +365,12 @@ object PlayerControlsPreferencesScreen : Screen {
               SliderPreference(
                 value = playerGradientOpacity,
                 onValueChange = { playerPrefs.playerGradientOpacity.set(it.toFixed(2)) },
-                title = { Text("Player gradient opacity") },
+                title = { Text(stringResource(R.string.pref_player_gradient_opacity_title)) },
                 valueRange = 0f..1f,
                 summary = {
                   val opacityPercent = (playerGradientOpacity * 100).toInt()
                   Text(
-                    text = "Current: $opacityPercent%",
+                    text = stringResource(R.string.pref_double_tap_seek_area_width_summary, opacityPercent),
                     color = MaterialTheme.colorScheme.outline,
                   )
                 },
@@ -384,7 +393,7 @@ object PlayerControlsPreferencesScreen : Screen {
                 values = predefinedTimeValues + listOf(-1),
                 valueToText = { value ->
                   if (value == -1) {
-                    AnnotatedString("Custom")
+                    AnnotatedString(context.getString(R.string.pref_player_custom_time_label))
                   } else {
                     AnnotatedString("$value ms")
                   }
@@ -393,7 +402,7 @@ object PlayerControlsPreferencesScreen : Screen {
                 summary = {
                   Text(
                     text = if (isCustomTimeValue) {
-                      "Custom ($playerTimeToDisappear ms)"
+                      stringResource(R.string.pref_player_custom_time_ms_summary, playerTimeToDisappear)
                     } else {
                       "$playerTimeToDisappear ms"
                     },

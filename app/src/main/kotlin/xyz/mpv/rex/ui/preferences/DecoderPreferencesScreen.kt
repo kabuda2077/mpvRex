@@ -211,7 +211,7 @@ object DecoderPreferencesScreen : Screen {
                   }
                 },
                 enabled = isVulkanSupported,
-                title = { Text(stringResource(R.string.pref_decoder_vulkan_title) + " (Experimental)") },
+                title = { Text(stringResource(R.string.pref_decoder_vulkan_title) + " " + stringResource(R.string.experimental_suffix)) },
                 summary = {
                   Text(
                     stringResource(
@@ -304,11 +304,11 @@ object DecoderPreferencesScreen : Screen {
                     preferences.enableAnime4K.set(false)
                   }
                 },
-                title = { Text("HDR-to-SDR Tone Mapping (hdr-toys)") },
+                title = { Text(stringResource(R.string.pref_decoder_hdr_toys_title)) },
                 summary = {
                   Column {
                     Text(
-                      "Apply high quality GLSL shaders for HDR-to-SDR conversion. Requires gpu-next.",
+                      stringResource(R.string.pref_decoder_hdr_toys_summary),
                       color = MaterialTheme.colorScheme.outline,
                     )
                     Text(
@@ -332,7 +332,7 @@ object DecoderPreferencesScreen : Screen {
                   value = currentTone,
                   onValueChange = { preferences.hdrToysToneMapping.set(it.name) },
                   values = HdrToysManager.ToneMapping.entries,
-                  title = { Text("  Tone Mapping Algorithm") },
+                  title = { Text("  " + stringResource(R.string.pref_decoder_hdr_toys_tone_title)) },
                   summary = {
                     Text(
                       "  " + currentTone.name,
@@ -347,7 +347,7 @@ object DecoderPreferencesScreen : Screen {
                   value = currentGamut,
                   onValueChange = { preferences.hdrToysGamutMapping.set(it.name) },
                   values = HdrToysManager.GamutMapping.entries,
-                  title = { Text("  Gamut Mapping Algorithm") },
+                  title = { Text("  " + stringResource(R.string.pref_decoder_hdr_toys_gamut_title)) },
                   summary = {
                     Text(
                       "  " + currentGamut.name,

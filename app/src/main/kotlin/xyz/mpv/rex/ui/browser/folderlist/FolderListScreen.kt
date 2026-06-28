@@ -482,7 +482,7 @@ object FolderListScreen : Screen {
                 onSearch = { },
                 expanded = false,
                 onExpandedChange = { },
-                placeholder = { Text("Search folders and videos...", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                placeholder = { Text(stringResource(R.string.search_folders_and_videos), maxLines = 1, overflow = TextOverflow.Ellipsis) },
                 leadingIcon = {
                   Icon(
                     imageVector = Icons.Filled.Search,
@@ -980,8 +980,8 @@ private fun FolderListContent(
     onClick = { onFolderClick(it) },
     onLongClick = { onFolderLongClick(it) },
     onToggleSelection = { selectionManager.toggle(it) },
-    emptyTitle = "No video folders found",
-    emptyMessage = "Add videos to your device to see folders here",
+    emptyTitle = stringResource(R.string.home_empty_title),
+    emptyMessage = stringResource(R.string.home_empty_message),
     isRefreshing = isRefreshing,
     onRefresh = onRefresh,
     isInSelectionMode = selectionManager.isInSelectionMode,
