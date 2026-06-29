@@ -842,7 +842,7 @@ fun FileSystemBrowserScreen(path: String? = null) {
                 filePicker.launch(arrayOf("video/*"))
               },
               icon = { Icon(Icons.Filled.FileOpen, contentDescription = null) },
-              text = { Text(text = "Open File") },
+              text = { Text(text = stringResource(id = R.string.open_file)) },
             )
 
             FloatingActionButtonMenuItem(
@@ -857,7 +857,7 @@ fun FileSystemBrowserScreen(path: String? = null) {
                 }
               },
               icon = { Icon(Icons.Filled.History, contentDescription = null) },
-              text = { Text(text = "Recently Played") },
+              text = { Text(text = stringResource(id = R.string.recently_played)) },
             )
 
             FloatingActionButtonMenuItem(
@@ -866,7 +866,7 @@ fun FileSystemBrowserScreen(path: String? = null) {
                 showLinkDialog.value = true
               },
               icon = { Icon(Icons.Filled.Link, contentDescription = null) },
-              text = { Text(text = "Open Link") },
+              text = { Text(text = stringResource(id = R.string.open_link)) },
             )
           }
         }

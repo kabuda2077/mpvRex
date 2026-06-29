@@ -881,4 +881,25 @@
     <string name="grid_video">视频网格</string>
     <string name="orientation_landscape">横屏</string>
     <string name="orientation_portrait">竖屏</string>
+
+    <!-- Playlist Sheet and Dialogs -->
+    <string name="playlist_options">播放列表选项</string>
+    <string name="playlist_create_empty_summary">创建一个新的空白播放列表</string>
+    <string name="playlist_add_m3u_url">从网址添加 M3U 播放列表</string>
+    <string name="playlist_add_m3u_url_summary">从网络网址导入播放列表</string>
+    <string name="playlist_create_playlist">创建播放列表</string>
+    <string name="playlist_created_success">播放列表创建成功</string>
+    <string name="playlist_created_failed">创建播放列表失败：%1$s</string>
+    <string name="playlist_create">创建</string>
+    <string name="playlist_add_m3u_dialog_title">添加 M3U 播放列表</string>
+    <string name="playlist_or">或</string>
+    <string name="playlist_choose_local_m3u">选择本地 M3U 文件</string>
+
+    <!-- Dialog actions -->
+    <string name="dialog_save">保存</string>
+    <string name="dialog_cancel">取消</string>
+
+    <!-- Network Dialog extra -->
+    <string name="net_add_connection">添加网络连接</string>
+    <string name="net_use_https">使用 HTTPS (安全连接)</string>
 </resources>

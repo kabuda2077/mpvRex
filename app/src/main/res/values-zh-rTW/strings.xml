@@ -881,5 +881,24 @@
     <string name="grid_video">影片格狀</string>
     <string name="orientation_landscape">橫屏</string>
     <string name="orientation_portrait">直屏</string>
-</resources>
+    <!-- Playlist Sheet and Dialogs -->
+    <string name="playlist_options">播放清單選項</string>
+    <string name="playlist_create_empty_summary">建立一個新的空白播放清單</string>
+    <string name="playlist_add_m3u_url">從網址新增 M3U 播放清單</string>
+    <string name="playlist_add_m3u_url_summary">從網路網址匯入播放清單</string>
+    <string name="playlist_create_playlist">建立播放清單</string>
+    <string name="playlist_created_success">播放清單建立成功</string>
+    <string name="playlist_created_failed">建立播放清單失敗：%1$s</string>
+    <string name="playlist_create">建立</string>
+    <string name="playlist_add_m3u_dialog_title">新增 M3U 播放清單</string>
+    <string name="playlist_or">或</string>
+    <string name="playlist_choose_local_m3u">選擇本機 M3U 檔案</string>
 
+    <!-- Dialog actions -->
+    <string name="dialog_save">儲存</string>
+    <string name="dialog_cancel">取消</string>
+
+    <!-- Network Dialog extra -->
+    <string name="net_add_connection">新增網路連線</string>
+    <string name="net_use_https">使用 HTTPS (安全連線)</string>
+</resources>

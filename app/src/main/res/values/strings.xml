@@ -874,4 +874,25 @@
     <string name="grid_video">Video Grid</string>
     <string name="orientation_landscape">Landscape</string>
     <string name="orientation_portrait">Portrait</string>
+
+    <!-- Playlist Sheet and Dialogs -->
+    <string name="playlist_options">Playlist Options</string>
+    <string name="playlist_create_empty_summary">Create a new blank playlist</string>
+    <string name="playlist_add_m3u_url">Add M3U Playlist from URL</string>
+    <string name="playlist_add_m3u_url_summary">Import a playlist from a web URL</string>
+    <string name="playlist_create_playlist">Create Playlist</string>
+    <string name="playlist_created_success">Playlist created successfully</string>
+    <string name="playlist_created_failed">Failed to create playlist: %1$s</string>
+    <string name="playlist_create">Create</string>
+    <string name="playlist_add_m3u_dialog_title">Add M3U Playlist</string>
+    <string name="playlist_or">OR</string>
+    <string name="playlist_choose_local_m3u">Choose Local M3U File</string>
+
+    <!-- Dialog actions -->
+    <string name="dialog_save">Save</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <!-- Network Dialog extra -->
+    <string name="net_add_connection">Add Network Connection</string>
+    <string name="net_use_https">Use HTTPS (Secure Connection)</string>
 </resources>
